@@ -1,0 +1,233 @@
+<!-- Content Start -->
+<div class="content" [ngSwitch]="role">
+    <app-sidebar></app-sidebar>
+  
+    <div *ngSwitchCase="'Training Head'" [ngSwitch]="option">
+      <!--Co-ordinator List for Head-->
+      <div *ngSwitchCase="'Co Ordinator'">
+        <section>
+          <h2 class="pt-4 px-4">Co-Ordinator List</h2>
+        </section>
+        <div class="container-fluid px-4 pt-2 pb-2">
+          <div class="header" id="style">
+            <a href="head-addco.html">
+              <button type="button" class="btn btn-dark pe-4 px-4">Add</button></a
+            >
+            <!-- Search form -->
+            <app-search (SearchtextChanged)="SearchActive($event)"></app-search>
+          </div>
+          <div class="container" *ngFor="let item of data |filter: searchuser">
+            <div class="row g-3 my-2">
+              <div class="col-md-12">
+                <div
+                  class="p-4 bg-light shadow-sm d-flex justify-content-around align-items-center rounded"
+                >
+                  <div>
+                    <a href="">
+                      <p class="mb-0 text-dark">{{ item.fullName }}</p>
+                    </a>
+                  </div>
+                  <a href=""><i class="fa-solid fa-pen-to-square text-dark"></i></a>
+                  <a href=""><i class="fa-solid fa-ban text-dark"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <app-pagination></app-pagination>
+        </div>
+  
+      <!--Trainer List for Head-->
+      <div *ngSwitchCase="'Trainer'">
+        <section>
+          <h2 class="pt-4 px-4">Trainer List</h2>
+        </section>
+        <div class="container-fluid px-4 pt-2 pb-2">
+          <div class="header" id="style">
+            <!-- Search form -->
+           <app-search (SearchtextChanged)="SearchActive($event)"></app-search>
+          </div>
+          <div class="container" *ngFor="let item of data |filter: searchuser">
+            <div class="row g-3 my-2">
+              <div class="col-md-12">
+                <div
+                  class="p-4 bg-light shadow-sm d-flex justify-content-around align-items-center rounded"
+                >
+                  <div>
+                    <a href="">
+                      <p class="mb-0 text-dark">{{ item.fullName }}</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p>Head Trainer works</p>
+          <app-pagination></app-pagination>
+        </div>
+      </div>
+  
+      <!--Trainee List for Head-->
+      <div *ngSwitchCase="'Trainee'">
+        <section>
+          <h2 class="pt-4 px-4">Trainee List</h2>
+        </section>
+        <div class="container-fluid px-4 pt-2 pb-2">
+          <div class="header" id="style">
+            <!-- Search form -->
+           <app-search (SearchtextChanged)="SearchActive($event)"></app-search>
+          </div>
+          <div class="container" *ngFor="let item of data |filter: searchuser">
+            <div class="row g-3 my-2">
+              <div class="col-md-12">
+                <div
+                  class="p-4 bg-light shadow-sm d-flex justify-content-around align-items-center rounded"
+                >
+                  <div>
+                    <a href="">
+                      <p class="mb-0 text-dark">{{ item.fullName }}</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p>Head Trainee works</p>
+        </div>
+        <app-pagination></app-pagination>
+      </div>
+  
+      <!--Reviewer List for Head-->
+      <div *ngSwitchCase="'Reviewer'">
+        <section>
+          <h2 class="pt-4 px-4">Reviewer List</h2>
+        </section>
+        <div class="container-fluid px-4 pt-2 pb-2">
+          <div class="header" id="style">
+            <!-- Search form -->
+           <app-search (SearchtextChanged)="SearchActive($event)"></app-search>
+          </div>
+          <div class="container" *ngFor="let item of data |filter: searchuser">
+            <div class="row g-3 my-2">
+              <div class="col-md-12">
+                <div
+                  class="p-4 bg-light shadow-sm d-flex justify-content-around align-items-center rounded"
+                >
+                  <div>
+                    <a href="">
+                      <p class="mb-0 text-dark">{{ item.fullName }}</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p>Head Reviewer works</p>
+        </div>
+        <app-pagination></app-pagination>
+      </div>
+    </div>
+  
+    <div *ngSwitchCase="'Co Ordinator'" [ngSwitch]="option">
+      <!--Trainer List for Coordinator-->
+      <div *ngSwitchCase="'Trainer'">
+        <section>
+          <h2 class="pt-4 px-4">Trainer List</h2>
+        </section>
+        <div class="container-fluid px-4 pt-2 pb-2">
+          <div class="header" id="style">
+            <a href="head-addco.html">
+              <button type="button" class="btn btn-dark pe-4 px-4">Add</button></a
+            >
+          </div>
+          <p>Coordinator Trainer works</p>
+        </div>
+      </div>
+  
+      <!--Trainee List for Coordinator-->
+      <div *ngSwitchCase="'Trainee'">
+        <section>
+          <h2 class="pt-4 px-4">Trainee List</h2>
+        </section>
+        <div class="container-fluid px-4 pt-2 pb-2">
+          <div class="header" id="style">
+            <a href="head-addco.html">
+              <button type="button" class="btn btn-dark pe-4 px-4">Add</button></a
+            >
+          </div>
+          <p>Coordinator Trainee works</p>
+        </div>
+      </div>
+  
+      <!--Reviewer List for Coordinator-->
+      <div *ngSwitchCase="'Reviewer'">
+        <section>
+          <h2 class="pt-4 px-4">Reviewer List</h2>
+        </section>
+        <div class="container-fluid px-4 pt-2 pb-2">
+          <div class="header" id="style">
+            <a href="head-addco.html">
+              <button type="button" class="btn btn-dark pe-4 px-4">Add</button></a
+            >
+          </div>
+          <p>Coordinator Reviewer works</p>
+        </div>
+      </div>
+      <!-- Search form  -->
+     <app-search (SearchtextChanged)="SearchActive($event)"></app-search>
+      <div class="container" *ngFor="let item of data |filter: searchuser">
+          <div class="row g-3 my-2">
+            <div class="col-md-12">
+              <div
+                class="p-4 bg-light shadow-sm d-flex justify-content-around align-items-center rounded"
+              >
+                <div>
+                  <a href="">
+                    <p class="mb-0 text-dark">{{ item.fullName }}</p>
+                  </a>
+                </div>
+                <a href=""><i class="fa-solid fa-pen-to-square text-dark"></i></a>
+                <a href=""><i class="fa-solid fa-ban text-dark"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <app-pagination></app-pagination>
+    </div>
+  
+    <!--Trainee List for Trainer-->
+    <div *ngSwitchCase="'Trainer'" [ngSwitch]="option">
+      <div *ngSwitchCase="'Trainee'">
+        <section>
+          <h2 class="pt-4 px-4">Trainee List</h2>
+        </section>
+        <div class="container-fluid px-4 pt-2 pb-2">
+          <div class="header" id="style">
+            <!-- Search form -->
+           <app-search (SearchtextChanged)="SearchActive($event)"></app-search>
+          </div>
+          <p>Trainer Trainee works</p>
+          <div class="container" *ngFor="let item of data |filter: searchuser">
+            <div class="row g-3 my-2">
+              <div class="col-md-12">
+                <div
+                  class="p-4 bg-light shadow-sm d-flex justify-content-around align-items-center rounded"
+                >
+                  <div>
+                    <a href="">
+                      <p class="mb-0 text-dark">{{ item.fullName }}</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <app-pagination></app-pagination>
+      </div>
+      </div>
+      
+    <footer>
+      <app-footer></app-footer>
+    </footer>
+  </div>
+  
